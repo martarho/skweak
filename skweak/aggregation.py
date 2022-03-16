@@ -446,7 +446,7 @@ class HMM(hmmlearn.base._BaseHMM, BaseAggregator):
                     return
 
                 # We run a forward and backward pass to compute the posteriors
-                logprob, fwdlattice = self._do_forward_pass(framelogprob)
+                logprob, fwdlattice = self._do_forward_log_pass(framelogprob)
                 curr_logprob += logprob
                 bwdlattice = self._do_backward_log_pass(framelogprob)
                 posteriors = self._compute_posteriors_log(fwdlattice, bwdlattice)
